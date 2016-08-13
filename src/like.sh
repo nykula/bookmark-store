@@ -37,7 +37,7 @@ fi
 if test -n "$1"; then
   cd "$STORE" || exit
   if test "$(ls -l | wc -l)" -eq 1 || ! grep -qFx "$1" *; then
-    ID="$(date +%s)"
+    ID="$(date +%s%3N)"
     echo "$1" > "$ID" && git add "$ID" && git commit -m "Insert $1"
   fi
   exit
